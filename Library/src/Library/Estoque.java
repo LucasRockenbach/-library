@@ -42,6 +42,32 @@ public class Estoque implements Controle {
             }
         }
 
+	@Override
+	public void adicionarLivro(Livro livro) {
+		livros.add(livro);
+		
+	}
+
+	@Override
+	public void adicionarArtigo(Artigo artigo) {
+		livros.add(artigo);
+		
+	}
+	
+	
+	public void alterarLivro(String titulo, String tituloAtualizado, String autor, int ano) {
+    	for(int i = 0; i < livros.size(); i++ ) {
+    		if(livros.get(i).getTitulo().equals(titulo)) {
+    			livros.get(i).setTitulo(tituloAtualizado);
+    			livros.get(i).setAutor(autor);
+    			livros.get(i).setAnoLivro(ano);
+    		}else {
+    			System.out.println("emprestante não encontrado");
+    		}
+    	}
+    	
+    }
+
 
 
 }

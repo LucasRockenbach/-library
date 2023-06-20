@@ -1,6 +1,7 @@
 package Library;
 
 public class Item {
+	private int id;
     private String titulo;
     private String autor;
     private int anoLivro;
@@ -25,15 +26,29 @@ public class Item {
     public Item() {
     	
     }
+    
+    
 
 	// Getters e setters
 
-    public String getTitulo() {
+    public int getId() {
+		return id;
+	}
+
+	public String getTitulo() {
         return titulo;
     }
+	
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
 
     public String getAutor() {
         return autor;
+    }
+    
+    public void setAutor(String autor) {
+    	this.autor = autor;
     }
 
     public boolean isEmprestado() {

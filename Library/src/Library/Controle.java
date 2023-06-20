@@ -9,5 +9,9 @@ public interface Controle {
 
     // Método para devolver um livro à biblioteca
     void devolver(Item livro, Pessoa empresta);
+    
+    void adicionarLivro(Livro livro);
+    void adicionarArtigo(Artigo artigo);
+    
 
 }
