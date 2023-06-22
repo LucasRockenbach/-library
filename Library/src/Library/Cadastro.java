@@ -37,16 +37,24 @@ public class Cadastro {
     	
     }
     
-    public void deletaPessoa(String nome) {
+    public void removePessoa(String nome) {
     	for(int i = 0; i< pessoa.size(); i++) {
     		if(pessoa.get(i).getNome().equals(nome)) {
     			pessoa.remove(i);
+    			System.out.println("Pessoa excluida com sucesso");
     		}else {
     			System.out.println("emprestante não encontrado");
 
     		}
     	}
     }
+
+	public void imprime() {
+		for(int i = 0; i< pessoa.size(); i ++) {
+			System.out.println(pessoa.get(i).ToString());
+		}
+		
+	}
 
    
 }

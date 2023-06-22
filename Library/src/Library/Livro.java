@@ -12,6 +12,9 @@ public class Livro extends Item{
 		this.numeroEdicao = numeroEdicao;
 	}
 
+	public String ToString() {
+		return super.ToString() + " editora: " + this.getEditora() + " numero da edição: " + this.getNumeroEdicao();
+	}
 
 	public String getEditora() {
 		return editora;

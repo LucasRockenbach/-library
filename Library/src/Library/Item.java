@@ -27,6 +27,11 @@ public class Item {
     	
     }
     
+    public String ToString() {
+    	return "titulo: " + this.getTitulo() + " autor: " + this.getAutor() + " ano de publicação: "
+    			+ this.getAnoLivro() + " genero: " + this.getGenero() + " numero de paginas: " + this.getNumeroPaginas()
+    			+ " quantidade em estoque: " + this.getQuantidadeEstoque();
+    }
     
 
 	// Getters e setters

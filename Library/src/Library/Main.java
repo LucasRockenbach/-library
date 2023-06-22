@@ -9,148 +9,162 @@ public class Main {
         Cadastro cadastro = new Cadastro();
         Scanner input = new Scanner(System.in);
         
+        
+        	int opcao = 0;
+        
         do {
             System.out.println("----- MENU -----");
-            System.out.println("1. Inserir Livro");
-            System.out.println("2. Inserir Artigo");
-            System.out.println("3. Inserir pessoa");
+            System.out.println("1. Inserir Livro"); // check
+            System.out.println("2. Inserir Artigo"); // check
+            System.out.println("3. Inserir pessoa"); // check
             System.out.println("4. Editar pessoa");
-            System.out.println("5. Editar Artigo");
-            System.out.println("6. Editar Livro");
+            System.out.println("5. Editar Livro");
+            System.out.println("6. Editar Artigo");
             System.out.println("7. Emprestar Livro");
             System.out.println("8. Emprestar Artigo");
             //
             System.out.println("7. Devolver Livro");
-            System.out.println("8. Excluir Livro");
-            System.out.println("9. Excluir Usuário");
-            System.out.println("10. Exibir Livros da Biblioteca");
-            System.out.println("11. Exibir Usuários");
-            System.out.println("12. Sair");
+            System.out.println("8. Excluir Livro");//check
+            System.out.println("9. Excluir Artigo");//check
+            System.out.println("10. Excluir Usuário");// check
+            System.out.println("11. Exibir Livros da Biblioteca"); // check
+            System.out.println("12. Exibir Usuários"); // check
+            System.out.println("13. Sair");
             System.out.print("Escolha uma opção: ");
-            int opcao = input.nextInt();
+            opcao = input.nextInt();
         
         
         
         switch (opcao) {
         case 1:
             System.out.print("Digite o título do livro: ");
-            String tituloLivro = input.nextLine();
+            String tituloLivro = input.next();
             System.out.print("Digite o autor do livro: ");
-            String autorLivro = input.nextLine();
+            String autorLivro = input.next();
             System.out.print("Digite o ano do livro: ");
             int anoLivro = input.nextInt();
             System.out.print("Digite a editora do livro: ");
-            String editora = input.nextLine();
+            String editora = input.next();
             System.out.print("Digite o genero do livro: ");
-            String genero = input.nextLine();
+            String genero = input.next();
             System.out.print("Digite o numero de paginas do livro: ");
             int paginas = input.nextInt();
             System.out.print("Digite o numero da edição do livro: ");
             int edicao = input.nextInt();
             Livro livro = new Livro(tituloLivro, autorLivro, anoLivro, genero, paginas, editora, edicao);
             estoque.adicionarLivro(livro);
+            livro.toString();
 
 
             
             break;
         case 2:
             System.out.print("Digite o título do Artigo: ");
-            String tituloArtigo = input.nextLine();
+            String tituloArtigo = input.next();
             System.out.print("Digite o autor do Artigo: ");
-            String autorArtigo = input.nextLine();
+            String autorArtigo = input.next();
             System.out.print("Digite o ano do Artigo: ");
             int anoArtigo = input.nextInt();
             System.out.print("Digite o genero ");
-            String generoArtigo = input.nextLine();
+            String generoArtigo = input.next();
             System.out.print("Digite o numero de paginas do Artigo: ");
             int paginasArtigo = input.nextInt();
             System.out.print("Digite a universidade que publicou o Artigo: ");
             String universidade = input.next();
             System.out.print("Digite o do orientador do Artigo: ");
             String orientador = input.next();
-            Artigo artigo = new Artigo(tituloArtigo, autorArtigo, anoLivro, generoArtigo, paginasArtigo, universidade, orientador);
+            Artigo artigo = new Artigo(tituloArtigo, autorArtigo, anoArtigo, generoArtigo, paginasArtigo, universidade, orientador);
             estoque.adicionarArtigo(artigo);
 
 
             
             break;
         case 3:
-            System.out.print("Digite o nome da pessoa: ");
-            String nome = input.nextLine();
-            System.out.print("Digite o cpf da pessoa: ");
-            String cpf = input.nextLine();
-            System.out.print("Digite o telefone da pessoa: ");
-            String telefone = input.nextLine();
-            System.out.print("Digite o e-mail da pessoa ");
-            String email= input.nextLine();
+            System.out.println("Digite o nome da pessoa: ");
+            String nome = input.next();
+            System.out.println("Digite o cpf da pessoa: ");
+            String cpf = input.next();
+            System.out.println("Digite o telefone da pessoa: ");
+            String telefone = input.next();
+            System.out.println("Digite o e-mail da pessoa ");
+            String email= input.next();
             Pessoa pessoa = new Pessoa(nome, cpf, telefone, email);
             cadastro.AdicionarPessoa(pessoa);
             break;
         case 4:
-        	System.out.println("digite o nome da pessoa que deseja alterar");
-        	nome = input.nextLine();
+        	System.out.println("digite o nome da pessoa que deseja alterar: ");
+        	nome = input.next();
         	System.out.print("Digite o nome da pessoa: ");
-            String nomeAtualizado = input.nextLine();
+            String nomeAtualizado = input.next();
             System.out.print("Digite o telefone da pessoa: ");
-            telefone = input.nextLine();
+            telefone = input.next();
             System.out.print("Digite o e-mail da pessoa ");
-            email= input.nextLine();
-        	cadastro.alterarPessoa(nomeAtualizado, nome, telefone, email);
-        	
+            email= input.next();
+        	cadastro.alterarPessoa(nome, nomeAtualizado,telefone, email);
+        	break;
         case 5:
-        	System.out.println("digite o titulo do livro que deseja alterar");
-        	String titulo = input.nextLine();
+        	System.out.println("digite o titulo do livro que deseja alterar:");
+        	String titulo = input.next();
         	System.out.println("digite o novo titulo do livro ");
-        	tituloLivro = input.nextLine();
+        	tituloLivro = input.next();
         	System.out.println("digite o novo autor do livro ");
-        	autorLivro = input.nextLine();
+        	autorLivro = input.next();
         	System.out.println("digite o novo ano do livro ");
         	anoLivro = input.nextInt();
-        	estoque.alterarLivro(titulo, nomeAtualizado, autorArtigo, anoArtigo);
+        	estoque.alterarLivro(titulo, tituloLivro, autorLivro, anoLivro);
+        	break;
+        case 6:
+        	System.out.println("digite o titulo do artigo que deseja excluir");
+        	titulo = input.next();
+        	System.out.println("digite o novo nome do artigo");
+        	tituloArtigo = input.next();
+        	System.out.println("digite o novo autor do artigo");
+        	autorArtigo = input.next();
+        	System.out.println("digite o novo ano do artigo");
+        	anoArtigo = input.nextInt();
+        	estoque.alterAritgo(titulo, tituloArtigo, autorArtigo, anoArtigo);
+        	break;
         	
-
-
+        case 8:
+        	System.out.println("Digite o titulo do livro que deseja excluir");
+        	titulo = input.next();
+        	estoque.removerLivro(titulo);
+        	break;
         	
-
+        case 9:
+        	System.out.println("Digite o titulo do artigo que deseja excluir");
+        	titulo = input.next();
+        	estoque.removerArtigo(titulo);
+        	break;
         	
+        case 10:
+        	System.out.println("digite o nome do usuario que deseja excluir");
+        	nome = input.next();
+        	cadastro.removePessoa(nome);
+
+        	break;
+        case 11:
+        	estoque.imprime();
+
+        	break;
         case 12:
+        	cadastro.imprime();
+        	break;
+
+        	
+        case 13:
             System.out.print("Saindo... ");
             break;
             default:
                 System.out.print("Opção invalida");
                 break;
 
-
+        
 
             
         
-        }
-        }
- 
-        while(opcao != 11);
+        }}while(opcao !=13);
         
         
-        
-
-       /* Livro livro1 = new Livro("Livro 1", "Autor 1");
-        Livro livro2 = new Livro("Livro 2", "Autor 2");
-
-        PessoaDoa pd1 = new PessoaDoa(null, "maria", "5555555", "1111111", "maria@gmail.com");
-        
-        PessoaEmpresta pe1 = new PessoaEmpresta(0, null, "pedro", "000000000", "454545", "LucasRockenbach@gmail.com");
-        PessoaEmpresta pe2 = new PessoaEmpresta(0, null, "alvaro", "123456789", "14789", "alvaro@gmail.com");
-        
-        cadastro.AdicionarDoador(pd1);
-        cadastro.AdicionarEmpresta(pe2);
-
-        estoque.emprestar(livro1, pe1);
-       
-        estoque.doar(livro2, pd1);
-        estoque.doar(livro1, pd1);
-        
-        estoque.emprestar(livro2, pe2);
-        
-
-        cadastro.pagarMulta(pe2);
     }
-}*/
+}

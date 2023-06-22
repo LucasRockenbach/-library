@@ -24,6 +24,14 @@ public class Artigo extends Item {
 	public String getOrientador() {
 		return orientador;
 	}
+
+	public void setUniversidade(String universidade) {
+		this.universidade = universidade;
+	}
+
+	public void setOrientador(String orientador) {
+		this.orientador = orientador;
+	}
 	
 	
 	
