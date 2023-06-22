@@ -17,19 +17,19 @@ public class Main {
             System.out.println("1. Inserir Livro"); // check
             System.out.println("2. Inserir Artigo"); // check
             System.out.println("3. Inserir pessoa"); // check
-            System.out.println("4. Editar pessoa");
-            System.out.println("5. Editar Livro");
-            System.out.println("6. Editar Artigo");
+            System.out.println("4. Editar pessoa");// check
+            System.out.println("5. Editar Livro");// check
+            System.out.println("6. Editar Artigo"); // check
             System.out.println("7. Emprestar Livro");
             System.out.println("8. Emprestar Artigo");
-            //
-            System.out.println("7. Devolver Livro");
-            System.out.println("8. Excluir Livro");//check
-            System.out.println("9. Excluir Artigo");//check
-            System.out.println("10. Excluir Usuário");// check
-            System.out.println("11. Exibir Livros da Biblioteca"); // check
-            System.out.println("12. Exibir Usuários"); // check
-            System.out.println("13. Sair");
+            System.out.println("9. Devolver Artigo");
+            System.out.println("10. Devolver Livro");
+            System.out.println("11. Excluir Livro");//check
+            System.out.println("12. Excluir Artigo");//check
+            System.out.println("13. Excluir Usuário");// check
+            System.out.println("14. Exibir Livros da Biblioteca"); // check
+            System.out.println("15. Exibir Usuários"); // check
+            System.out.println("16. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = input.nextInt();
         
@@ -125,34 +125,34 @@ public class Main {
         	estoque.alterAritgo(titulo, tituloArtigo, autorArtigo, anoArtigo);
         	break;
         	
-        case 8:
+        case 11:
         	System.out.println("Digite o titulo do livro que deseja excluir");
         	titulo = input.next();
         	estoque.removerLivro(titulo);
         	break;
         	
-        case 9:
+        case 12:
         	System.out.println("Digite o titulo do artigo que deseja excluir");
         	titulo = input.next();
         	estoque.removerArtigo(titulo);
         	break;
         	
-        case 10:
+        case 13:
         	System.out.println("digite o nome do usuario que deseja excluir");
         	nome = input.next();
         	cadastro.removePessoa(nome);
 
         	break;
-        case 11:
+        case 14:
         	estoque.imprime();
 
         	break;
-        case 12:
+        case 15:
         	cadastro.imprime();
         	break;
 
         	
-        case 13:
+        case 16:
             System.out.print("Saindo... ");
             break;
             default:
@@ -163,7 +163,7 @@ public class Main {
 
             
         
-        }}while(opcao !=13);
+        }}while(opcao !=16);
         
         
     }
