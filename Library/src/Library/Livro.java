@@ -1,6 +1,6 @@
 package Library;
 
-public class Livro extends Item{
+public class Livro extends Item implements Multa{
 	
 	private String editora;
 	private int numeroEdicao;
@@ -34,6 +34,14 @@ public class Livro extends Item{
 	public void setNumeroEdicao(int numeroEdicao) {
 		this.numeroEdicao = numeroEdicao;
 	}
+
+	@Override
+	public double calcularMulta(Pessoa atraso) {
+		double multa = atraso.getDiasAtraso() * 0.15;
+		return multa;
+	}
+	
+	
 	
 	
 }

@@ -1,7 +1,6 @@
 package Library;
 
 public class Item {
-	private int id;
     private String titulo;
     private String autor;
     private int anoLivro;
@@ -9,6 +8,7 @@ public class Item {
     private int numeroPaginas;
     private int quantidadeEstoque;
     private boolean emprestado = false;
+    private boolean emprestavel = true;
 
     
 
@@ -19,8 +19,7 @@ public class Item {
 		this.anoLivro = anoLivro;
 		this.genero = genero;
 		this.numeroPaginas = numeroPaginas;
-		this.quantidadeEstoque = 1;
-		this.emprestado = false;
+		this.quantidadeEstoque = 0;
 	}
     
     public Item() {
@@ -36,9 +35,6 @@ public class Item {
 
 	// Getters e setters
 
-    public int getId() {
-		return id;
-	}
 
 	public String getTitulo() {
         return titulo;
@@ -96,6 +92,17 @@ public class Item {
 	public void setNumeroPaginas(int numeroPaginas) {
 		this.numeroPaginas = numeroPaginas;
 	}
+	
+	
+	public boolean isEmprestavel() {
+		return emprestavel;
+	}
+
+	public void setEmprestavel(boolean emprestavel) {
+		this.emprestavel = emprestavel;
+	}
+
+	
 	
 
 	

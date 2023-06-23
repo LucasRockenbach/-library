@@ -7,7 +7,8 @@ public class Pessoa {
 	private String email;
 	private int livrosEmprestados;
 	private double multa = 0;
-	private int livrosDoados = 0;
+	private int diasAtraso = 0;
+	
 	
 	
 	
@@ -19,13 +20,11 @@ public class Pessoa {
 		this.telefone = telefone;
 		this.email = email;
 		this.multa = 0;
-		this.livrosDoados = 0;
 	}
 	
 	public String ToString() {
 		return "nome: " + this.getNome() + " cpf: " + this.getCpf() + " telefone: " + this.getTelefone()
-		+ " email: " + this.getEmail() + " livros emprestados: " + this.getLivrosEmprestados()
-		+ " livros doados " + this.getLivrosDoados();
+		+ " email: " + this.getEmail() + " livros emprestados: " + this.getLivrosEmprestados();
 	}
 	
 	public String getNome() {
@@ -70,6 +69,14 @@ public class Pessoa {
 	public void setLivrosEmprestados(int livrosEmprestados) {
 		this.livrosEmprestados = livrosEmprestados;
 	}
+	public int getDiasAtraso() {
+		return diasAtraso;
+	}
+
+	public void setDiasAtraso(int diasAtraso) {
+		this.diasAtraso = diasAtraso;
+	}
+	private int livrosDoados = 0;
 	
 	
 	

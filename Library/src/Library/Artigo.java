@@ -1,6 +1,6 @@
 package Library;
 
-public class Artigo extends Item {
+public class Artigo extends Item implements Multa {
 	
 	private String universidade;
 	private String orientador;
@@ -32,6 +32,14 @@ public class Artigo extends Item {
 	public void setOrientador(String orientador) {
 		this.orientador = orientador;
 	}
+
+	@Override
+	public double calcularMulta(Pessoa atraso) {
+		double multa = atraso.getDiasAtraso() * 0.20;
+		return multa;
+	}
+	
+	
 	
 	
 	

@@ -1,13 +1,15 @@
 package Library;
 
-import java.sql.Date;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Estoque estoque = new Estoque();
-        Cadastro cadastro = new Cadastro();
+      
+        
+        Controle controle = new Controle();
         Scanner input = new Scanner(System.in);
+        
+        
         
         
         	int opcao = 0;
@@ -20,16 +22,16 @@ public class Main {
             System.out.println("4. Editar pessoa");// check
             System.out.println("5. Editar Livro");// check
             System.out.println("6. Editar Artigo"); // check
-            System.out.println("7. Emprestar Livro");
-            System.out.println("8. Emprestar Artigo");
-            System.out.println("9. Devolver Artigo");
-            System.out.println("10. Devolver Livro");
-            System.out.println("11. Excluir Livro");//check
-            System.out.println("12. Excluir Artigo");//check
-            System.out.println("13. Excluir Usuário");// check
-            System.out.println("14. Exibir Livros da Biblioteca"); // check
-            System.out.println("15. Exibir Usuários"); // check
-            System.out.println("16. Sair");
+            System.out.println("7. Emprestar");
+            System.out.println("8. Devolver");
+            System.out.println("9. Excluir Livro");//check
+            System.out.println("10. Excluir Artigo");//check
+            System.out.println("11. Excluir Usuário");// check
+            System.out.println("12. Exibir Livros da Biblioteca"); // check
+            System.out.println("13. Exibir Usuários"); // check
+            System.out.println("14. calcular multa"); // check
+
+            System.out.println("15. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = input.nextInt();
         
@@ -52,7 +54,7 @@ public class Main {
             System.out.print("Digite o numero da edição do livro: ");
             int edicao = input.nextInt();
             Livro livro = new Livro(tituloLivro, autorLivro, anoLivro, genero, paginas, editora, edicao);
-            estoque.adicionarLivro(livro);
+            controle.adicionarLivro(livro);
             livro.toString();
 
 
@@ -74,7 +76,7 @@ public class Main {
             System.out.print("Digite o do orientador do Artigo: ");
             String orientador = input.next();
             Artigo artigo = new Artigo(tituloArtigo, autorArtigo, anoArtigo, generoArtigo, paginasArtigo, universidade, orientador);
-            estoque.adicionarArtigo(artigo);
+            controle.adicionarArtigo(artigo);
 
 
             
@@ -89,7 +91,7 @@ public class Main {
             System.out.println("Digite o e-mail da pessoa ");
             String email= input.next();
             Pessoa pessoa = new Pessoa(nome, cpf, telefone, email);
-            cadastro.AdicionarPessoa(pessoa);
+            controle.AdicionarPessoa(pessoa);
             break;
         case 4:
         	System.out.println("digite o nome da pessoa que deseja alterar: ");
@@ -100,7 +102,7 @@ public class Main {
             telefone = input.next();
             System.out.print("Digite o e-mail da pessoa ");
             email= input.next();
-        	cadastro.alterarPessoa(nome, nomeAtualizado,telefone, email);
+        	controle.alterarPessoa(nome, nomeAtualizado,telefone, email);
         	break;
         case 5:
         	System.out.println("digite o titulo do livro que deseja alterar:");
@@ -111,7 +113,7 @@ public class Main {
         	autorLivro = input.next();
         	System.out.println("digite o novo ano do livro ");
         	anoLivro = input.nextInt();
-        	estoque.alterarLivro(titulo, tituloLivro, autorLivro, anoLivro);
+        	controle.alterarLivro(titulo, tituloLivro, autorLivro, anoLivro);
         	break;
         case 6:
         	System.out.println("digite o titulo do artigo que deseja excluir");
@@ -122,37 +124,53 @@ public class Main {
         	autorArtigo = input.next();
         	System.out.println("digite o novo ano do artigo");
         	anoArtigo = input.nextInt();
-        	estoque.alterAritgo(titulo, tituloArtigo, autorArtigo, anoArtigo);
+        	controle.alterAritgo(titulo, tituloArtigo, autorArtigo, anoArtigo);
+        	break;
+        case 7:
+        	System.out.println("digite o titulo do livro ou artigo que deseja emprestar");
+        	titulo = input.next();
+        	System.out.println("digite o nome da pessoa que deseja emprestar");
+        	nome = input.next();
+        	controle.emprestar(titulo, nome);
+        	break;
+        case 8:
+        	System.out.println("digite o titulo do livro ou artigo que esta sendo devolvido");
+        	titulo = input.next();
+        	System.out.println("digite o nome da pessoa que esta devolvendo");
+        	nome = input.next();
+        	System.out.println("quantos dias de atraso?");
+        	int dias = input.nextInt();
+        	controle.devolver(titulo, nome, dias);
+        	break;
+
+        	
+        case 9:
+        	System.out.println("Digite o titulo do livro que deseja excluir");
+        	titulo = input.next();
+        	controle.removerLivro(titulo);
+        	break;
+        	
+        case 10:
+        	System.out.println("Digite o titulo do artigo que deseja excluir");
+        	titulo = input.next();
+        	controle.removerArtigo(titulo);
         	break;
         	
         case 11:
-        	System.out.println("Digite o titulo do livro que deseja excluir");
-        	titulo = input.next();
-        	estoque.removerLivro(titulo);
-        	break;
-        	
-        case 12:
-        	System.out.println("Digite o titulo do artigo que deseja excluir");
-        	titulo = input.next();
-        	estoque.removerArtigo(titulo);
-        	break;
-        	
-        case 13:
         	System.out.println("digite o nome do usuario que deseja excluir");
         	nome = input.next();
-        	cadastro.removePessoa(nome);
+        	controle.removePessoa(nome);
 
         	break;
-        case 14:
-        	estoque.imprime();
-
+        case 12:
+        	controle.imprimeLivros();
         	break;
-        case 15:
-        	cadastro.imprime();
+        case 13:
+        	controle.imprimeCadastros();
         	break;
 
         	
-        case 16:
+        case 14:
             System.out.print("Saindo... ");
             break;
             default:
@@ -163,7 +181,7 @@ public class Main {
 
             
         
-        }}while(opcao !=16);
+        }}while(opcao !=14);
         
         
     }
